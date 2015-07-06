@@ -1,9 +1,7 @@
 package grails3.geb.example.pages
 
-import geb.Page
-
-class AuthorShowPage extends Page {
-    static url = "author/show"
+class AuthorShowPage extends geb.Page {
+    static url = "/author/show"
 
     static content = {
         propertyList(wait: true) { $(".property-list") }

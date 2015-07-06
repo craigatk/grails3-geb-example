@@ -1,8 +1,6 @@
 package grails3.geb.example.pages
 
-import geb.Page
-
-class AuthorCreatePage extends Page {
+class AuthorCreatePage extends geb.Page {
     static url = "/author/create"
 
     static content = {

@@ -5,9 +5,6 @@ import grails.transaction.Rollback
 import grails3.geb.example.pages.AuthorCreatePage
 import grails3.geb.example.pages.AuthorShowPage
 
-/**
- * See the API for {@link grails.test.mixin.support.GrailsUnitTestMixin} for usage instructions
- */
 @Integration
 @Rollback
 class AuthorGebSpec extends GebSpec {
