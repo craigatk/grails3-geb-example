@@ -5,16 +5,16 @@ import grails3.geb.example.pages.AuthorCreatePage
 import grails3.geb.example.pages.AuthorShowPage
 
 @Integration
-class AuthorGebSpec extends GebSpec {
+class AuthorTwoGebSpec extends GebSpec {
     void "should create Author"() {
        given:
        AuthorCreatePage authorCreatePage = to AuthorCreatePage
 
         when:
-        AuthorShowPage authorShowPage = authorCreatePage.createAuthor('First', 'Last')
+        AuthorShowPage authorShowPage = authorCreatePage.createAuthor('Jim', 'Smith')
 
         then:
-        assert authorShowPage.firstName == 'First'
-        assert authorShowPage.lastName == 'Last'
+        assert authorShowPage.firstName == 'Jim'
+        assert authorShowPage.lastName == 'Smith'
     }
 }
