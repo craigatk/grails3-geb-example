@@ -17,3 +17,6 @@ out/
 
 # Node dirs
 node_modules
+
+# Misc
+.asscache
