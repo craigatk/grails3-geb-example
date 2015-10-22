@@ -1,6 +1,6 @@
 package grails3.geb.example
 
-import geb.spock.GebSpec
+import geb.spock.GebReportingSpec
 import grails.test.mixin.integration.Integration
 import grails3.geb.example.pages.BookCreatePage
 import grails3.geb.example.pages.BookShowPage
@@ -8,7 +8,7 @@ import grails3.geb.example.test.QueryExecutor
 import org.springframework.beans.factory.annotation.Autowired
 
 @Integration
-class BookTwoGebSpec extends GebSpec  {
+class BookTwoGebSpec extends GebReportingSpec  {
     @Autowired
     QueryExecutor queryExecutor
 
@@ -23,7 +23,7 @@ class BookTwoGebSpec extends GebSpec  {
         assert bookShowPage.bookTitle == 'My Second Book'
 
         and:
-        def query = Book.where { title == 'My Second Book'}
-        assert queryExecutor.find(query)?.title == 'My Second Book'
+        def findBookQuery = Book.where { title == 'My Second Book'}
+        assert queryExecutor.find(findBookQuery)?.title == 'My Second Book'
     }
 }

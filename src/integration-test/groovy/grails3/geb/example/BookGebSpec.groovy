@@ -1,6 +1,6 @@
 package grails3.geb.example
 
-import geb.spock.GebSpec
+import geb.spock.GebReportingSpec
 import grails.test.mixin.integration.Integration
 import grails3.geb.example.pages.BookCreatePage
 import grails3.geb.example.pages.BookShowPage
@@ -8,7 +8,7 @@ import grails3.geb.example.test.BookDataUtil
 import org.springframework.beans.factory.annotation.Autowired
 
 @Integration
-class BookGebSpec extends GebSpec  {
+class BookGebSpec extends GebReportingSpec  {
     @Autowired
     BookDataUtil bookDataUtil
 
