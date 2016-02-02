@@ -36,5 +36,10 @@
                 </fieldset>
             </g:form>
         </div>
+
+        <g:javascript>
+            // Intentional Javascript error for demonstrating capturing browser logs in functional tests
+            fakeObject.fakeMethod();
+        </g:javascript>
     </body>
 </html>
