@@ -35,8 +35,12 @@ class BrowserLogGebSpec extends GebReportingSpec {
         LogEntries logs = driver.manage().logs().get(LogType.BROWSER)
         List<LogEntry> errorLogEntries = logs.filter(Level.SEVERE)
 
-        errorLogEntries.each { logEntry ->
-            println("[${logEntry.level}] ${logEntry.message}")
+        if (errorLogEntries) {
+            println "Browser errors:"
+
+            errorLogEntries.each { logEntry ->
+                println("[${logEntry.level}] ${logEntry.message}")
+            }
         }
     }
 }
