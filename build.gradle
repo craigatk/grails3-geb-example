@@ -73,9 +73,18 @@ dependencies {
     testCompile "org.seleniumhq.selenium:selenium-firefox-driver:${project.seleniumVersion}"
     testCompile "org.seleniumhq.selenium:selenium-ie-driver:${project.seleniumVersion}"
 
+    // For downloading browser-specific drivers that browsers like Chrome and IE require
+    testCompile "io.github.bonigarcia:webdrivermanager:1.3.1"
+
     console "org.grails:grails-console"
 }
 
 task wrapper(type: Wrapper) {
     gradleVersion = gradleWrapperVersion
+}
+
+// Pass system properties through to the integrationTest task so we can pass in the 'geb.env' property to run tests
+// in different browsers. Adapted from http://mrhaki.blogspot.com/2015/09/grails-goodness-passing-system.html
+configure(integrationTest) {
+    systemProperties System.properties
 }
