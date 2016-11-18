@@ -12,6 +12,9 @@ build/
 target/
 out/
 
+# Gradle dirs
+.gradle
+
 # Log files
 *.log
 
