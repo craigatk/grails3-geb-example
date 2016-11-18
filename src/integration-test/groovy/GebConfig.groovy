@@ -1,4 +1,5 @@
 import io.github.bonigarcia.wdm.ChromeDriverManager
+import io.github.bonigarcia.wdm.FirefoxDriverManager
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.firefox.FirefoxDriver
 
@@ -6,7 +7,12 @@ import org.openqa.selenium.firefox.FirefoxDriver
 reportsDir = 'build/test-reports'
 
 // Run tests in Firefox by default
-driver = { new FirefoxDriver() }
+driver = {
+    // Download and configure Marionette using https://github.com/bonigarcia/webdrivermanager
+    FirefoxDriverManager.getInstance().setup()
+
+    new FirefoxDriver()
+}
 
 environments {
 

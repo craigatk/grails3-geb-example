@@ -1,6 +1,10 @@
 # Grails3 Geb Example
 Example of using Geb browser functional tests with Grails3
 
+## Requirements
+
+This project uses Selenium 3, which requires you use Java 8.
+
 ## Test classes
 
 The Geb test classes are in the ```src/integration-test/groovy``` directory.

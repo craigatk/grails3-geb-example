@@ -66,15 +66,14 @@ dependencies {
 
     testCompile "org.grails:grails-plugin-testing"
     testCompile "org.grails.plugins:geb"
-    testCompile "org.gebish:geb-core:0.13.1"
+    testCompile "org.gebish:geb-core:${project.gebVersion}"
 
     testCompile "org.seleniumhq.selenium:selenium-support:${project.seleniumVersion}"
     testCompile "org.seleniumhq.selenium:selenium-chrome-driver:${project.seleniumVersion}"
     testCompile "org.seleniumhq.selenium:selenium-firefox-driver:${project.seleniumVersion}"
-    testCompile "org.seleniumhq.selenium:selenium-ie-driver:${project.seleniumVersion}"
 
     // For downloading browser-specific drivers that browsers like Chrome and IE require
-    testCompile("io.github.bonigarcia:webdrivermanager:1.4.1") {
+    testCompile("io.github.bonigarcia:webdrivermanager:1.5.0") {
         exclude group: 'org.seleniumhq.selenium'
     }
 

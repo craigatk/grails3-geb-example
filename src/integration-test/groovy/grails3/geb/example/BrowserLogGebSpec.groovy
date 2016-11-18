@@ -22,7 +22,7 @@ class BrowserLogGebSpec extends GebReportingSpec {
         AuthorCreatePage authorCreatePage = to AuthorCreatePage
         authorCreatePage.createAuthor('Richard', 'Castle')
 
-        Author author = authorDataUtil.findByLastName('Castle')
+        Author author = waitFor { authorDataUtil.findByLastName('Castle') }
 
         when:
         AuthorEditPage authorEditPage = to(AuthorEditPage, author.id)
@@ -32,15 +32,19 @@ class BrowserLogGebSpec extends GebReportingSpec {
     }
 
     def cleanup() {
-        LogEntries logs = driver.manage().logs().get(LogType.BROWSER)
-        List<LogEntry> errorLogEntries = logs.filter(Level.SEVERE)
+        try {
+            LogEntries logs = driver.manage().logs().get(LogType.BROWSER)
+            List<LogEntry> errorLogEntries = logs.filter(Level.SEVERE)
 
-        if (errorLogEntries) {
-            println "Browser errors:"
+            if (errorLogEntries) {
+                println "Browser errors:"
 
-            errorLogEntries.each { logEntry ->
-                println("[${logEntry.level}] ${logEntry.message}")
+                errorLogEntries.each { logEntry ->
+                    println("[${logEntry.level}] ${logEntry.message}")
+                }
             }
+        } catch (Exception e) {
+            println "Error capturing browser logs"
         }
     }
 }
